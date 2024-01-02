@@ -1,0 +1,40 @@
+{
+  "name": "enuygun-frontend-automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cy:tag": "cypress run --env grepTags=kvkk --browser=chrome",
+    "cy:run": "cypress run --browser=chrome",
+    "cy:parallel-test": "cypress-parallel -s cy:run -t 5 -d 'cypress/e2e/*.cy.js' -r 'mochawesome' -o 'reportDir=report/json,overwrite=false,html=false,json=true'",
+    "cy:parallel-tag": "cypress-parallel -s cy:tag -t 5 -d 'cypress/e2e/*.cy.js' -r 'mochawesome' -o 'reportDir=report/json,overwrite=false,html=false,json=true'",
+    "report:clean": "rm -rf report cypress/screenshots cypress/reports cypress/videos runner-results multi-reporter-config.json cypress/parallel-weights.json",
+    "report:merge": "mochawesome-merge 'report/json/*.json' > report/mochawesome.json",
+    "report:build": "marge report/mochawesome.json -f index -o report --assetsDir report/assets",
+    "report:serve": "npx http-server ./report",
+    "cy:run:test": "npm run report:clean; npm run cy:parallel-test; npm run report:merge && npm run report:build",
+    "cy:run:tag": "npm run report:clean; npm run cy:parallel-tag; npm run report:merge && npm run report:build",
+    "cy:verify": "cypress verify",
+    "e2e:record:parallel": "cypress run --browser chrome --record --parallel",
+    "start:ci": "serve --no-clipboard --listen ${PORT:-8080}"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cypress/grep": "^3.1.5",
+    "cypress": "^13.3.2",
+    "cypress-mochawesome-reporter": "^3.5.0",
+    "cypress-slow-down": "^1.2.1",
+    "cypress-xpath": "^2.0.1",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "cypress-localstorage-commands": "^2.2.4",
+    "cypress-parallel": "^0.13.0",
+    "cypress-plugin-steps": "^1.1.1",
+    "cypress-real-events": "^1.10.3",
+    "dayjs": "^1.11.8"
+  }
+}
