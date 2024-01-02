@@ -24,7 +24,7 @@ npx cypress run
 # Open Cypress Test Runner
 npx cypress open 
 
-# Clean all reports
+# Clean old reports
 rm -rf report cypress/screenshots cypress/reports cypress/videos runner-results 
 multi-reporter-config.json cypress/parallel-weights.json
 
