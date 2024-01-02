@@ -10,6 +10,9 @@ In the package.json file, there are detailed test script commands on how tests s
 # Clone the repository
 git clone https://github.com/ekaragozoglu/enUygun.git
 
+# Go project directory
+cd enUygun
+
 # Install dependencies
 rm -rf node_modules
 
