@@ -6,7 +6,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return false
 })
 describe("Flight Scenarios", () => {
-    it("Case-1 SAW-ESB flight", () => {
+it("Case-1 SAW-ESB flight", () => {
     steps.clickElement(homePage.flightText)
     steps.selectAirport(flightModule.search.inputDepartureCity, flightModule.search.inputDepartureCity, "İstanbul", "IST")
     steps.selectAirport(flightModule.search.inputArrivalCity, flightModule.search.inputArrivalCity, "Ankara", "ESB")
