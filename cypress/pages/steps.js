@@ -21,7 +21,7 @@ class steps {
     }
 
     clickText(text) {
-        cy.contains(text).click();
+        this.findElement(`//button[@data-testid][text()='${text}']`).click();
     }
 
     selectAirport(clickLocator, inputLocator, text, targetText, index = 0, delay = 0) {
@@ -36,12 +36,12 @@ class steps {
         if(oneWay){
         let isFound = false;
             const checkDepartureMonth = () => {
-            cy.xpath(flightModule.search.currentDepartureMonthText)
+            this.findElement(flightModule.search.currentDepartureMonthText)
             .invoke('text')
             .then((text) => {
                 if (text.includes(departureMonth)) { 
                     isFound = true;
-                    cy.xpath('//td[@aria-label="' + departureDate + '"]').click();
+                    this.findElement('//td[@aria-label="' + departureDate + '"]').click();
                     cy.wait(500);
                 } else {
                     this.clickElement(flightModule.search.nextMonthButton)
@@ -56,12 +56,12 @@ class steps {
         this.clickElement(flightModule.search.departureDateField)
         let isFound = false;
             const checkDepartureMonth = () => {
-            cy.xpath(flightModule.search.currentDepartureMonthText)
+            this.findElement(flightModule.search.currentDepartureMonthText)
             .invoke('text')
             .then((text) => {
                 if (text.includes(departureMonth)) { 
                     isFound = true;
-                    cy.xpath('//td[@aria-label="' + departureDate + '"]').click();
+                    this.findElement('//td[@aria-label="' + departureDate + '"]').click();
                 } else {
                     this.clickElement(flightModule.search.nextMonthButton)
                     cy.wait(1000); 
@@ -72,12 +72,12 @@ class steps {
             checkDepartureMonth();
         this.clickElement(flightModule.search.oneWayCheckbox)
         const checkReturnMonth = () => {
-            cy.xpath(flightModule.search.currentReturnMonthText)
+            this.findElement(flightModule.search.currentReturnMonthText)
             .invoke('text')
             .then((text) => {
                 if (text.includes(returnMonth)) { 
                 isFound = true;
-                cy.xpath('//td[@aria-label="' + returnDate + '"]').click();
+                this.findElement('//td[@aria-label="' + returnDate + '"]').click();
                 cy.wait(500);
                 } else {
                 this.clickElement(flightModule.search.nextMonthButton)

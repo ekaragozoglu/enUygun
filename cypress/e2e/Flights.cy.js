@@ -11,12 +11,11 @@ describe("Flight Scenarios", () => {
     steps.selectAirport(flightModule.search.inputDepartureCity, flightModule.search.inputDepartureCity, "İstanbul", "IST")
     steps.selectAirport(flightModule.search.inputArrivalCity, flightModule.search.inputArrivalCity, "Ankara", "ESB")
     steps.selectDate("Mart", "Cumartesi, 30 Mart 2024", "Haziran", "Pazar, 30 Haziran 2024", false);
-    // Yolcu sayisi ve sinif secimi ihtiyaca gore kullanilabilir. Yorum satirina alinmistir.
-    // steps.selectAdultCount(4);
-    // steps.selectChildCount(1);
-    // steps.selectInfantCount(2);
-    // steps.clickText("Business")
-    // steps.clickElement(flightModule.search.OkButtonOnDropdown)
+    steps.selectAdultCount(2);
+    steps.selectChildCount(1);
+    steps.selectInfantCount(1);
+    steps.clickText("Ekonomi")
+    steps.clickElement(flightModule.search.OkButtonOnDropdown)
     steps.clickElement(flightModule.search.searchButton)
     steps.clickElement(flightModule.filter.departureArrivalTimeFilter)
     steps.dragToDepartureTime(41.6956, 600, 75.0521, 1080, 33.3565)
@@ -27,12 +26,10 @@ it("Case-2 SAW-ESB flight with TK as ascending price listing", () => {
     steps.selectAirport(flightModule.search.inputDepartureCity, flightModule.search.inputDepartureCity, "İstanbul", "IST")
     steps.selectAirport(flightModule.search.inputArrivalCity, flightModule.search.inputArrivalCity, "Ankara", "ESB")
     steps.selectDate("Mart", "Cumartesi, 30 Mart 2024", "Haziran", "Pazar, 30 Haziran 2024", false);
-    // Yolcu sayisi ve sinif secimi ihtiyaca gore kullanilabilir. Yorum satirina alinmistir.
-    // steps.selectAdultCount(4);
-    // steps.selectChildCount(1);
-    // steps.selectInfantCount(2);
-    // steps.clickText("Business")
-    // steps.clickElement(flightModule.search.OkButtonOnDropdown)
+    steps.selectAdultCount(2);
+    steps.selectChildCount(1);
+    steps.selectInfantCount(1);
+    steps.clickText("Ekonomi")
     steps.clickElement(flightModule.search.searchButton)
     steps.clickElement(flightModule.filter.departureArrivalTimeFilter)
     steps.dragToDepartureTime(41.6956, 600, 75.0521, 1080, 33.3565)
