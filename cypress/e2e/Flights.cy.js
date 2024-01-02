@@ -30,6 +30,7 @@ it("Case-2 SAW-ESB flight with TK as ascending price listing", () => {
     steps.selectChildCount(1);
     steps.selectInfantCount(1);
     steps.clickText("Ekonomi")
+    steps.clickElement(flightModule.search.OkButtonOnDropdown)
     steps.clickElement(flightModule.search.searchButton)
     steps.clickElement(flightModule.filter.departureArrivalTimeFilter)
     steps.dragToDepartureTime(41.6956, 600, 75.0521, 1080, 33.3565)
